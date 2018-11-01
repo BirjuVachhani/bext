@@ -11,7 +11,7 @@ The list of available features will be added soon...
 ## Licence
 
 ```
-Copyright 2018 [BirjuVachhani](https://github.com/BirjuVachhani)
+Copyright 2018 BirjuVachhani
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
