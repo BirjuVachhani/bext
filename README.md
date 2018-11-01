@@ -9,6 +9,7 @@ Please note that the library is still under development.
 ## Available Extensions 
 
 * [AlertDialog Extensions](https://github.com/BirjuVachhani/bext/wiki/AlertDialog-Extensions)
+* [Log Extensions](https://github.com/BirjuVachhani/bext/wiki/Log-Extensions)
 
 ## Licence
 
