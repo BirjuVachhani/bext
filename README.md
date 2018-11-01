@@ -10,6 +10,7 @@ Please note that the library is still under development.
 
 * [AlertDialog Extensions](https://github.com/BirjuVachhani/bext/wiki/AlertDialog-Extensions)
 * [Log Extensions](https://github.com/BirjuVachhani/bext/wiki/Log-Extensions)
+* [Toast Extensions](https://github.com/BirjuVachhani/bext/wiki/Toast-Extensions)
 
 ## Licence
 
