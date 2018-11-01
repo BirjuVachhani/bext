@@ -6,7 +6,9 @@ See [wiki](https://github.com/BirjuVachhani/bext/wiki) for more information on E
 
 Please note that the library is still under development.
 
-The list of available features will be added soon...
+## Available Extensions 
+
+* [AlertDialog Extensions](https://github.com/BirjuVachhani/bext/wiki/AlertDialog-Extensions)
 
 ## Licence
 
