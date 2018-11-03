@@ -9,8 +9,10 @@ Please note that the library is still under development.
 ## Available Extensions 
 
 * [AlertDialog Extensions](https://github.com/BirjuVachhani/bext/wiki/AlertDialog-Extensions)
+* [EditText Extensions](https://github.com/BirjuVachhani/bext/wiki/EditText-Extensions)
 * [Log Extensions](https://github.com/BirjuVachhani/bext/wiki/Log-Extensions)
 * [Toast Extensions](https://github.com/BirjuVachhani/bext/wiki/Toast-Extensions)
+* [View Extensions](https://github.com/BirjuVachhani/bext/wiki/View-Extensions)
 
 ## Licence
 
