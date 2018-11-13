@@ -14,6 +14,32 @@ Please note that the library is still under development.
 * [Toast Extensions](https://github.com/BirjuVachhani/bext/wiki/Toast-Extensions)
 * [View Extensions](https://github.com/BirjuVachhani/bext/wiki/View-Extensions)
 
+
+## Current Version
+#### AvatarView v1.0.0-alpha
+
+## Gradle Dependency
+
+* Add the JitPack repository to your project's build.gradle file
+
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+* Add the dependency in your app's build.gradle file
+
+```
+dependencies {
+    implementation 'com.github.BirjuVachhani:bext:1.0.0-alpha'
+}
+```
+
+
 ## Licence
 
 ```
