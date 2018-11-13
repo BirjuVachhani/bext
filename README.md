@@ -35,7 +35,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.BirjuVachhani:location-extension-android:1.0.0-alpha'
+    implementation 'com.github.BirjuVachhani:bext:1.0.0-alpha'
 }
 ```
 
