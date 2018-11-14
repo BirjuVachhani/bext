@@ -15,14 +15,13 @@ Please note that the library is still under development.
 
 ## Available Extensions 
 
+* [Activity Extensions](https://github.com/BirjuVachhani/bext/wiki/Activity-Extensions)
 * [AlertDialog Extensions](https://github.com/BirjuVachhani/bext/wiki/AlertDialog-Extensions)
 * [EditText Extensions](https://github.com/BirjuVachhani/bext/wiki/EditText-Extensions)
 * [Log Extensions](https://github.com/BirjuVachhani/bext/wiki/Log-Extensions)
 * [Toast Extensions](https://github.com/BirjuVachhani/bext/wiki/Toast-Extensions)
 * [View Extensions](https://github.com/BirjuVachhani/bext/wiki/View-Extensions)
 
-## Current Version
-#### AvatarView v1.0.0-alpha
 
 ## Gradle Dependency
 
@@ -41,11 +40,11 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.BirjuVachhani:bext:1.0.0-alpha'
+    implementation 'com.github.BirjuVachhani:bext:$latestVersion'
 }
 ```
 
->>>>>>> 854bb19f5ad0e433bd0ec6e4cc658203f5a62a23
+![GitHub (pre-)release](https://img.shields.io/github/release-pre/birjuvachhani/bext.svg?style=for-the-badge&colorB=607D8B)
 
 ## Licence
 
