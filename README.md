@@ -14,7 +14,6 @@ Please note that the library is still under development.
 * [Toast Extensions](https://github.com/BirjuVachhani/bext/wiki/Toast-Extensions)
 * [View Extensions](https://github.com/BirjuVachhani/bext/wiki/View-Extensions)
 
-
 ## Current Version
 #### AvatarView v1.0.0-alpha
 
@@ -39,6 +38,7 @@ dependencies {
 }
 ```
 
+>>>>>>> 854bb19f5ad0e433bd0ec6e4cc658203f5a62a23
 
 ## Licence
 
