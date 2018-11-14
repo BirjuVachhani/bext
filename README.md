@@ -1,6 +1,13 @@
-# bext - Base Extensions
+# Bext - Base Extensions
 
-bext is a kotlin extensions library which makes it very easy to write short and clean code and saves a developer's life from being miserable. 
+[![API](https://img.shields.io/badge/API-16%2B-F44336.svg?style=for-the-badge)](https://android-arsenal.com/api?level=16)
+[![License](https://img.shields.io/badge/License-Apache%202.0-2196F3.svg?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
+![GitHub (pre-)release](https://img.shields.io/github/release-pre/birjuvachhani/bext.svg?style=for-the-badge&colorB=607D8B)
+![Travis (.org) branch](https://img.shields.io/travis/BirjuVachhani/bext/master.svg?style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/BirjuVachhani/bext.svg?style=for-the-badge&colorB=f18e33)
+![Plateform](https://img.shields.io/badge/Plateform-Android-93c157.svg?style=for-the-badge)
+
+Bext is a kotlin extensions library which makes it very easy to write short and clean code and saves a developer's life from being miserable. 
 
 See [wiki](https://github.com/BirjuVachhani/bext/wiki) for more information on Extensions
 
