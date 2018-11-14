@@ -44,7 +44,7 @@ dependencies {
 }
 ```
 
-![GitHub (pre-)release](https://img.shields.io/github/release-pre/birjuvachhani/bext.svg?style=for-the-badge&colorB=607D8B)
+![GitHub (pre-)release](https://img.shields.io/github/release-pre/birjuvachhani/bext.svg?style=for-the-badge&colorB=0091EA)
 
 ## Licence
 
