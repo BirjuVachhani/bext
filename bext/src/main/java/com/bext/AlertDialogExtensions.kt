@@ -1,80 +1,119 @@
+/*
+ * Copyright 2018 BirjuVachhani
+ * </p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * </p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * </p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.bext
 
 import android.content.Context
+import android.support.annotation.StringRes
 import android.support.v7.app.AlertDialog
-import kotlin.properties.Delegates
 
 /**
  * Created by Birju Vachhani on 01/11/18.
  */
 
-fun Context.alertDialog(dialogBuilder: DialogBuilder.() -> Unit) {
-    DialogBuilder(this).apply {
+
+/**
+ *  Extension to create and display an AlertDialog and shows it.
+ *
+ *  @param dialogBuilder is a Helper class to process dialog DSL and create a AlertDialog.Builder instance.
+ *
+ * */
+fun Context.alertDialog(dialogBuilder: AlertDialogBuilder.() -> Unit) {
+    AlertDialogBuilder(this).apply {
         dialogBuilder()
     }.createDialog().show()
 }
 
-class DialogBuilder(val context: Context) {
+/**
+ * Extension to create an AlertDialog
+ *
+ * @param dialogBuilder is a Helper class to process dialog DSL and create a AlertDialog.Builder instance.
+ *
+ * @return AlertDialog object which can be used to show the dialog
+ * */
+fun Context.createDialog(dialogBuilder: AlertDialogBuilder.() -> Unit): AlertDialog {
+    return AlertDialogBuilder(this).apply {
+        dialogBuilder()
+    }.createDialog()
+}
+
+/**
+ * AlertDialog Extension Helper class
+ *
+ * */
+class AlertDialogBuilder internal constructor(private val context: Context) {
 
     private val builder: AlertDialog.Builder = AlertDialog.Builder(context)
 
-    var message: String by Delegates.observable(context.getString(R.string.dialog_message_default)) { _, _, newValue ->
-        builder.setMessage(newValue)
-    }
+    var title: String = context.getString(R.string.app_name)
+    var message: String = context.getString(R.string.dialog_message_default)
+    private var positiveButtonText = context.getString(R.string.positive_button_default_text)
+    private var negativeButtonText = context.getString(R.string.negative_button_default_text)
+    private var positiveButtonClick: () -> Unit = {}
+    private var negativeButtonClick: () -> Unit = {}
 
-    var messageId: Int by Delegates.observable(0) { _, _, newValue ->
-        builder.setMessage(newValue)
-    }
-
-    var titleId: Int by Delegates.observable(0) { _, _, newValue ->
-        builder.setTitle(newValue)
-    }
-
-    var positiveButtonId: Int by Delegates.observable(0) { _, _, newValue ->
-        builder.setPositiveButton(newValue) { dialog, _ ->
-            positiveButtonClick.invoke()
-            dialog.dismiss()
+    /**
+     * Adds positive button to the alert dialog.
+     *
+     * @param func is a lamda with PositiveButton class receiver
+     * */
+    fun positiveButton(func: PositiveButton.() -> Unit) {
+        val positiveButton = PositiveButton()
+        positiveButton.func()
+        positiveButton.text?.let {
+            positiveButtonText = it
         }
-    }
-
-    var negativeButtonId: Int by Delegates.observable(0) { _, _, newValue ->
-        builder.setNegativeButton(newValue) { dialog, _ ->
-            negativeButtonClick.invoke()
-            dialog.dismiss()
+        positiveButton.textId?.let {
+            positiveButtonText = context.getString(it)
         }
-    }
-
-    var title: String by Delegates.observable(context.getString(R.string.app_name)) { _, _, newValue ->
-        builder.setTitle(newValue)
-    }
-
-    var positiveButtonText: String by Delegates.observable(context.getString(R.string.positive_button_default_text)) { _, _, newValue ->
-        builder.setPositiveButton(newValue) { dialog, _ ->
-            positiveButtonClick.invoke()
-            dialog.dismiss()
-        }
-    }
-
-    var negativeButtonText: String by Delegates.observable(context.getString(R.string.negative_button_default_text)) { _, _, newValue ->
-        builder.setNegativeButton(newValue) { dialog, _ ->
-            negativeButtonClick.invoke()
-            dialog.dismiss()
-        }
-    }
-
-    var positiveButtonClick: (() -> Unit) by Delegates.observable({}) { _, _, newValue ->
+        positiveButtonClick = positiveButton.clickEvent
         builder.setPositiveButton(positiveButtonText) { dialog, _ ->
-            newValue.invoke()
-            dialog.dismiss()
-        }
-    }
-    var negativeButtonClick: (() -> Unit) by Delegates.observable({}) { _, _, newValue ->
-        builder.setNegativeButton(negativeButtonText) { dialog, _ ->
-            newValue.invoke()
+            positiveButtonClick.invoke()
             dialog.dismiss()
         }
     }
 
+    /**
+     * Adds negative button to the alert dialog.
+     *
+     * This is optional. If you want to display a dialog with only one button then don't use it.
+     *
+     * @param func is a lamda with PositiveButton class receiver
+     * */
+    fun negativeButton(func: NegativeButton.() -> Unit) {
+        val negativeButton = NegativeButton()
+        negativeButton.func()
+        negativeButton.text?.let {
+            negativeButtonText = it
+        }
+        negativeButton.textId?.let {
+            negativeButtonText = context.getString(it)
+        }
+        negativeButtonClick = negativeButton.clickEvent
+        builder.setNegativeButton(negativeButtonText) { dialog, _ ->
+            negativeButtonClick.invoke()
+            dialog.dismiss()
+        }
+    }
+
+    /**
+     * Adds positive button to the alert dialog.
+     *
+     * @return AlertDialog instance which is used to show alert
+     * */
     internal fun createDialog(): AlertDialog {
         builder.setMessage(message)
         builder.setTitle(title)
@@ -83,6 +122,43 @@ class DialogBuilder(val context: Context) {
             dialog.dismiss()
         }
         return builder.create()
+    }
+
+
+    /**
+     * PositiveButton Helper class to process positive button DSL and add a positive button in the dialog.
+     *
+     * @property textId gains the priority when both text and textId is used
+     * @property onClick is a small DSL function to add click event on positive button
+     *
+     * */
+    class PositiveButton internal constructor() {
+        var text: String? = null
+        @StringRes
+        var textId: Int? = null
+        internal var clickEvent: () -> Unit = {}
+
+        fun onClick(func: () -> Unit) {
+            clickEvent = func
+        }
+    }
+
+    /**
+     * NegativeButton Helper class to process negative button DSL and add a negative button in the dialog.
+     *
+     * @property textId gains the priority when both text and textId is used
+     * @property onClick is a small DSL function to add click event on positive button
+     *
+     * */
+    class NegativeButton internal constructor() {
+        var text: String? = null
+        @StringRes
+        var textId: Int? = null
+        internal var clickEvent: () -> Unit = {}
+
+        fun onClick(func: () -> Unit) {
+            clickEvent = func
+        }
     }
 }
 
