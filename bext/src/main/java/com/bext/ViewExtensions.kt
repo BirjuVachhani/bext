@@ -16,9 +16,7 @@
 
 package com.bext
 
-import android.app.Activity
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 
 
 /**
@@ -28,32 +26,51 @@ import android.view.inputmethod.InputMethodManager
 /**
  *  View visibility extensions
  */
+
+/**
+ * Extension function to set a view's visibility to View.VISIBLE
+ *
+ * */
 fun View.show() {
     this.visibility = View.VISIBLE
 }
 
+/**
+ * Extension function to set a view's visibility to View.GONE
+ *
+ * */
 fun View.hide() {
     this.visibility = View.GONE
 }
 
+/**
+ * Extension function to set a view's visibility to View.INVISIBLE
+ *
+ * */
 fun View.invisible() {
     this.visibility = View.INVISIBLE
 }
 
+/**
+ * Extension function to check if the view is visible
+ *
+ * */
 fun View.isVisible(): Boolean {
     return this.visibility == View.VISIBLE
 }
 
+/**
+ * Extension function to check if the view is hidden
+ *
+ * */
 fun View.isHidden(): Boolean {
     return this.visibility == View.GONE
 }
 
+/**
+ * Extension function to check if the view is invisible
+ *
+ * */
 fun View.isInvisible(): Boolean {
     return this.visibility == View.INVISIBLE
-}
-
-/* Hides soft keyboard */
-fun View.hideKeyboard() {
-    val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.hideSoftInputFromWindow(windowToken, 0)
 }
