@@ -34,13 +34,13 @@ class MainActivity : AppCompatActivity() {
             title = "Tips"
             message = "This is the awesome form of kotlin DSL."
             positiveButton {
-                textId = R.string.positive
+                text = from(R.string.positive)
                 onClick {
                     toast("Cool")
                 }
             }
             negativeButton {
-                textId = R.string.negative
+                text = from(R.string.negative)
                 onClick {
                     toast("Whatever")
                 }
