@@ -16,8 +16,10 @@
 
 package com.bext
 
+import android.app.Activity
 import android.content.Context
 import android.support.annotation.StringRes
+import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 
 /**
@@ -31,10 +33,25 @@ import android.support.v7.app.AlertDialog
  *  @param dialogBuilder is a Helper class to process dialog DSL and create a AlertDialog.Builder instance.
  *
  * */
-fun Context.alertDialog(dialogBuilder: AlertDialogBuilder.() -> Unit) {
+fun Activity.alertDialog(dialogBuilder: AlertDialogBuilder.() -> Unit) {
+
     AlertDialogBuilder(this).apply {
         dialogBuilder()
     }.createDialog().show()
+}
+
+/**
+ *  Extension to create and display an AlertDialog and shows it.
+ *
+ *  @param dialogBuilder is a Helper class to process dialog DSL and create a AlertDialog.Builder instance.
+ *
+ * */
+fun Fragment.alertDialog(dialogBuilder: AlertDialogBuilder.() -> Unit) {
+    if (this.context != null) {
+        AlertDialogBuilder(requireContext()).apply {
+            dialogBuilder()
+        }.createDialog().show()
+    }
 }
 
 /**
@@ -44,7 +61,7 @@ fun Context.alertDialog(dialogBuilder: AlertDialogBuilder.() -> Unit) {
  *
  * @return AlertDialog object which can be used to show the dialog
  * */
-fun Context.createDialog(dialogBuilder: AlertDialogBuilder.() -> Unit): AlertDialog {
+fun Activity.createDialog(dialogBuilder: AlertDialogBuilder.() -> Unit): AlertDialog {
     return AlertDialogBuilder(this).apply {
         dialogBuilder()
     }.createDialog()
@@ -71,14 +88,9 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
      * @param func is a lamda with PositiveButton class receiver
      * */
     fun positiveButton(func: PositiveButton.() -> Unit) {
-        val positiveButton = PositiveButton()
+        val positiveButton = PositiveButton(context)
         positiveButton.func()
-        positiveButton.text?.let {
-            positiveButtonText = it
-        }
-        positiveButton.textId?.let {
-            positiveButtonText = context.getString(it)
-        }
+        positiveButtonText = positiveButton.text
         positiveButtonClick = positiveButton.clickEvent
         builder.setPositiveButton(positiveButtonText) { dialog, _ ->
             positiveButtonClick.invoke()
@@ -94,14 +106,9 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
      * @param func is a lamda with PositiveButton class receiver
      * */
     fun negativeButton(func: NegativeButton.() -> Unit) {
-        val negativeButton = NegativeButton()
+        val negativeButton = NegativeButton(context)
         negativeButton.func()
-        negativeButton.text?.let {
-            negativeButtonText = it
-        }
-        negativeButton.textId?.let {
-            negativeButtonText = context.getString(it)
-        }
+        negativeButtonText = negativeButton.text
         negativeButtonClick = negativeButton.clickEvent
         builder.setNegativeButton(negativeButtonText) { dialog, _ ->
             negativeButtonClick.invoke()
@@ -132,11 +139,13 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
      * @property onClick is a small DSL function to add click event on positive button
      *
      * */
-    class PositiveButton internal constructor() {
-        var text: String? = null
-        @StringRes
-        var textId: Int? = null
+    class PositiveButton internal constructor(private val context: Context) {
+        var text: String = context.getString(R.string.negative_button_default_text)
         internal var clickEvent: () -> Unit = {}
+
+        fun from(@StringRes id: Int): String {
+            return context.getString(id)
+        }
 
         fun onClick(func: () -> Unit) {
             clickEvent = func
@@ -150,11 +159,13 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
      * @property onClick is a small DSL function to add click event on positive button
      *
      * */
-    class NegativeButton internal constructor() {
-        var text: String? = null
-        @StringRes
-        var textId: Int? = null
+    class NegativeButton internal constructor(private val context: Context) {
+        var text: String = context.getString(R.string.positive_button_default_text)
         internal var clickEvent: () -> Unit = {}
+
+        fun from(@StringRes id: Int): String {
+            return context.getString(id)
+        }
 
         fun onClick(func: () -> Unit) {
             clickEvent = func
