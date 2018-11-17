@@ -1,5 +1,6 @@
 # Bext - Base Extensions
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/857bed5ff6eb41f0a0b1f28afa34c2a4)](https://app.codacy.com/app/BirjuVachhani/bext?utm_source=github.com&utm_medium=referral&utm_content=BirjuVachhani/bext&utm_campaign=Badge_Grade_Dashboard)
 [![License](https://img.shields.io/badge/License-Apache%202.0-2196F3.svg?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub (pre-)release](https://img.shields.io/github/release-pre/birjuvachhani/bext.svg?style=for-the-badge&colorB=607D8B)](https://github.com/BirjuVachhani/bext/releases)
 [![language](https://img.shields.io/github/languages/top/BirjuVachhani/bext.svg?style=for-the-badge&colorB=f18e33)](https://kotlinlang.org/)
