@@ -36,8 +36,9 @@ import android.view.inputmethod.InputMethodManager
  * */
 fun Activity.hideKeyboard() {
     Handler().post {
-        (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
-            .hideSoftInputFromWindow(this.findViewById<View>(android.R.id.content).windowToken, 0)
+        (getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager)?.let {
+            it.hideSoftInputFromWindow(this.findViewById<View>(android.R.id.content).windowToken, 0)
+        }
     }
 }
 
