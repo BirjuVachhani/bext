@@ -22,6 +22,10 @@ import android.view.View
 import com.bext.alertDialog
 import com.bext.toast
 
+/**
+ * Main Activity class to handle handle MainActivity UI
+ *
+ * */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +33,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
+    /**
+     * This will be executed on the button click in main activity
+     *
+     * */
     fun displayDialog(v: View) {
         alertDialog {
             title = "Tips"
