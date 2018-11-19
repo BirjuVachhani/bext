@@ -143,10 +143,23 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
         var text: String = context.getString(R.string.negative_button_default_text)
         internal var clickEvent: () -> Unit = {}
 
+        /**
+         * Used to process string resources
+         *
+         * @param id is a string resource id which is resolved to a string
+         *
+         * returns resolved string from resource
+         * */
         fun from(@StringRes id: Int): String {
             return context.getString(id)
         }
 
+        /**
+         * Provides a function block to perform actions on positive button click
+         *
+         * @param func is the function which will be called on the positive button click
+         *
+         * */
         fun onClick(func: () -> Unit) {
             clickEvent = func
         }
@@ -163,10 +176,23 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
         var text: String = context.getString(R.string.positive_button_default_text)
         internal var clickEvent: () -> Unit = {}
 
+        /**
+         * Used to process string resources
+         *
+         * @param id is a string resource id which is resolved to a string
+         *
+         * returns resolved string from resource
+         * */
         fun from(@StringRes id: Int): String {
             return context.getString(id)
         }
 
+        /**
+         * Provides a function block to perform actions on positive button click
+         *
+         * @param func is the function which will be called on the positive button click
+         *
+         * */
         fun onClick(func: () -> Unit) {
             clickEvent = func
         }
