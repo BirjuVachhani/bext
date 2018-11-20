@@ -28,6 +28,12 @@ import android.support.v7.app.AlertDialog
 
 
 /**
+ * Dsl Marker for AlertDialogBuilder extension helper
+ * */
+@DslMarker
+annotation class AlertDialogExtensions
+
+/**
  *  Extension to create and display an AlertDialog and shows it.
  *
  *  @param dialogBuilder is a Helper class to process dialog DSL and create a AlertDialog.Builder instance.
@@ -71,6 +77,7 @@ fun Activity.createDialog(dialogBuilder: AlertDialogBuilder.() -> Unit): AlertDi
  * AlertDialog Extension Helper class
  *
  * */
+@AlertDialogExtensions
 class AlertDialogBuilder internal constructor(private val context: Context) {
 
     private val builder: AlertDialog.Builder = AlertDialog.Builder(context)
@@ -139,6 +146,7 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
      * @property onClick is a small DSL function to add click event on positive button
      *
      * */
+    @AlertDialogExtensions
     class PositiveButton internal constructor(private val context: Context) {
         var text: String = context.getString(R.string.negative_button_default_text)
         internal var clickEvent: () -> Unit = {}
@@ -172,6 +180,7 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
      * @property onClick is a small DSL function to add click event on positive button
      *
      * */
+    @AlertDialogExtensions
     class NegativeButton internal constructor(private val context: Context) {
         var text: String = context.getString(R.string.positive_button_default_text)
         internal var clickEvent: () -> Unit = {}
