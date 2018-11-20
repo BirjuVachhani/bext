@@ -26,6 +26,12 @@ import android.widget.EditText
  */
 
 /**
+ * Dsl Marker for TextWatcherBuilder extension helper
+ * */
+@DslMarker
+annotation class TextWatcherMarker
+
+/**
  * Gets the current text available in the EditText
  * @return most recent text available in the EditText widget
  * */
@@ -126,6 +132,7 @@ fun EditText.isValidEmail(): Boolean {
  * @property onChangedFunc stores a function which should be called when the text changes in EditText
  *
  * */
+@TextWatcherMarker
 class TextWatcherBuilder {
     internal var afterFunc: (editable: Editable?) -> Unit = { _ -> }
     internal var beforeFunc: (text: CharSequence?, start: Int, count: Int, after: Int) -> Unit = { _, _, _, _ -> }
