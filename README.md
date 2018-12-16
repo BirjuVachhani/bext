@@ -11,7 +11,7 @@ Bext is a kotlin extensions library which makes it very easy to write short and 
 
 See [wiki](https://github.com/BirjuVachhani/bext/wiki) for more information on Extensions
 
-Please note that the library is still under development.
+Please note that the library is still under development. Stable version of the library will be released soon. Stay toned!
 
 ## Available Extensions 
 

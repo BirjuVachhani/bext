@@ -24,53 +24,37 @@ import android.view.View
  */
 
 /**
- *  View visibility extensions
- */
-
-/**
- * Extension function to set a view's visibility to View.VISIBLE
- *
+ * Extension function to set a [View]'s visibility to View.VISIBLE
  * */
 fun View.show() {
     this.visibility = View.VISIBLE
 }
 
 /**
- * Extension function to set a view's visibility to View.GONE
- *
+ * Extension function to set a [View]'s visibility to View.GONE
  * */
 fun View.hide() {
     this.visibility = View.GONE
 }
 
 /**
- * Extension function to set a view's visibility to View.INVISIBLE
- *
+ * Extension function to set a [View]'s visibility to View.INVISIBLE
  * */
 fun View.invisible() {
     this.visibility = View.INVISIBLE
 }
 
 /**
- * Extension function to check if the view is visible
- *
+ * Extension function to check if the [View] is visible
  * */
-fun View.isVisible(): Boolean {
-    return this.visibility == View.VISIBLE
-}
+fun View.isVisible(): Boolean = this.visibility == View.VISIBLE
 
 /**
- * Extension function to check if the view is hidden
- *
+ * Extension function to check if the [View] is hidden
  * */
-fun View.isHidden(): Boolean {
-    return this.visibility == View.GONE
-}
+fun View.isHidden(): Boolean = this.visibility == View.GONE
 
 /**
- * Extension function to check if the view is invisible
- *
+ * Extension function to check if the [View] is invisible
  * */
-fun View.isInvisible(): Boolean {
-    return this.visibility == View.INVISIBLE
-}
+fun View.isInvisible(): Boolean = this.visibility == View.INVISIBLE
