@@ -26,137 +26,111 @@ import android.widget.Toast
  * Created by Birju Vachhani on 01/11/18.
  */
 
-//------------------------------------------------------------------------
 /**
  *  Toasts for Support Fragment
  */
 
 /**
- * Fragment Extension function to display a toast for short time
- *
+ * [Fragment] Extension function to display a toast for short time
  * @param obj is the object which will be displayed as a string in the toast
- *
  * */
-fun <T> Fragment.toast(obj: T) {
+fun <T> Fragment.toast(obj: T) =
     Toast.makeText(this.requireContext(), obj.toString(), Toast.LENGTH_SHORT).show()
-}
 
 /**
- * Fragment Extension function to display a toast for short time
- *
+ * [Fragment] Extension function to display a toast for short time
  * @param messageId is the string resource which will be displayed as the toast message
- *
  * */
-fun Fragment.toast(@StringRes messageId: Int) {
-    Toast.makeText(this.requireContext(), requireContext().resources.getString(messageId), Toast.LENGTH_SHORT).show()
-}
+fun Fragment.toast(@StringRes messageId: Int) =
+    Toast.makeText(
+        this.requireContext(),
+        requireContext().resources.getString(messageId), Toast.LENGTH_SHORT
+    ).show()
 
 /**
- * Fragment Extension function to display a toast for long time
- *
+ * [Fragment] Extension function to display a toast for long time
  * @param obj is the object which will be displayed as a string in the toast
- *
  * */
-fun <T> Fragment.longToast(obj: T) {
+fun <T> Fragment.longToast(obj: T) =
     Toast.makeText(this.requireContext(), obj.toString(), Toast.LENGTH_LONG).show()
-}
 
 /**
- * Fragment Extension function to display a toast for long time
- *
+ * [Fragment] Extension function to display a toast for long time
  * @param messageId is the string resource which will be displayed as the toast message
- *
  * */
-fun Fragment.longToast(@StringRes messageId: Int) {
-    Toast.makeText(this.requireContext(), requireContext().resources.getString(messageId), Toast.LENGTH_LONG).show()
-}
+fun Fragment.longToast(@StringRes messageId: Int) =
+    Toast.makeText(
+        this.requireContext(),
+        requireContext().resources.getString(messageId), Toast.LENGTH_LONG
+    ).show()
 
-//------------------------------------------------------------------------
 /**
  *  Toasts for AppCompatActivity
  */
 
 /**
- * Context Extension function to display a toast for short time
- *
+ * [Context] Extension function to display a toast for short time
  * @param obj is the object which will be displayed as a string in the toast
- *
  * */
-fun <T> Context.toast(obj: T) {
+fun <T> Context.toast(obj: T) =
     Toast.makeText(this, obj.toString(), Toast.LENGTH_SHORT).show()
-}
 
 /**
- * Context Extension function to display a toast for short time
- *
+ * [Context] Extension function to display a toast for short time
  * @param messageId is the string resource which will be displayed as the toast message
- *
  * */
-fun Context.toast(@StringRes messageId: Int) {
+fun Context.toast(@StringRes messageId: Int) =
     Toast.makeText(this, this.getString(messageId), Toast.LENGTH_SHORT).show()
-}
 
 /**
- * Context Extension function to display a toast for long time
- *
+ * [Context] Extension function to display a toast for long time
  * @param obj is the object which will be displayed as a string in the toast
- *
  * */
-fun <T> Context.longToast(obj: T) {
+fun <T> Context.longToast(obj: T) =
     Toast.makeText(this, obj.toString(), Toast.LENGTH_LONG).show()
-}
 
 /**
- * Context Extension function to display a toast for long time
- *
- * @param messageId is the string resource which will be displayed as the toast message
- *
+ * [Context] Extension function to display a toast for long time
+ * @param messageId is the string resource which will be
+ * displayed as the toast message
  * */
-fun Context.longToast(@StringRes messageId: Int) {
+fun Context.longToast(@StringRes messageId: Int) =
     Toast.makeText(this, this.getString(messageId), Toast.LENGTH_LONG).show()
-}
 
-//------------------------------------------------------------------------
 /**
  *  Toasts for Dialogs
  */
 
 /**
- * AlertDialog Extension function to display a toast for short time
- *
+ * [AlertDialog] Extension function to display a toast for short time
  * @param obj is the object which will be displayed as a string in the toast
- *
  * */
-fun <T> AlertDialog.toast(obj: T) {
+fun <T> AlertDialog.toast(obj: T) =
     Toast.makeText(this.context, obj.toString(), Toast.LENGTH_SHORT).show()
-}
 
 /**
- * AlertDialog Extension function to display a toast for short time
- *
+ * [AlertDialog] Extension function to display a toast for short time
  * @param messageId is the string resource which will be displayed as the toast message
- *
  * */
-fun AlertDialog.toast(@StringRes messageId: Int) {
-    Toast.makeText(this.context, this.context.getString(messageId), Toast.LENGTH_SHORT).show()
-}
+fun AlertDialog.toast(@StringRes messageId: Int) =
+    Toast.makeText(
+        this.context,
+        this.context.getString(messageId), Toast.LENGTH_SHORT
+    ).show()
 
 /**
- * AlertDialog Extension function to display a toast for long time
- *
+ * [AlertDialog] Extension function to display a toast for long time
  * @param obj is the object which will be displayed as a string in the toast
- *
  * */
-fun <T> AlertDialog.longToast(obj: T) {
+fun <T> AlertDialog.longToast(obj: T) =
     Toast.makeText(this.context, obj.toString(), Toast.LENGTH_LONG).show()
-}
 
 /**
- * AlertDialog Extension function to display a toast for long time
- *
+ * [AlertDialog] Extension function to display a toast for long time
  * @param messageId is the string resource which will be displayed as the toast message
- *
  * */
-fun AlertDialog.longToast(@StringRes messageId: Int) {
-    Toast.makeText(this.context, this.context.getString(messageId), Toast.LENGTH_SHORT).show()
-}
+fun AlertDialog.longToast(@StringRes messageId: Int) =
+    Toast.makeText(
+        this.context,
+        this.context.getString(messageId), Toast.LENGTH_SHORT
+    ).show()

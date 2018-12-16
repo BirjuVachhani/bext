@@ -26,31 +26,26 @@ import android.support.v7.app.AlertDialog
  * Created by Birju Vachhani on 01/11/18.
  */
 
-
 /**
- * Dsl Marker for AlertDialogBuilder extension helper
+ * Dsl Marker for [AlertDialogBuilder] extension helper
  * */
 @DslMarker
 annotation class AlertDialogExtensions
 
 /**
- *  Extension to create and display an AlertDialog and shows it.
- *
- *  @param dialogBuilder is a Helper class to process dialog DSL and create a AlertDialog.Builder instance.
- *
+ *  Extension to create and display an [AlertDialog] and shows it.
+ *  @param dialogBuilder is a Helper class to process dialog DSL and create
+ *  a [AlertDialog.Builder] instance.
  * */
-fun Activity.alertDialog(dialogBuilder: AlertDialogBuilder.() -> Unit) {
-
+fun Activity.alertDialog(dialogBuilder: AlertDialogBuilder.() -> Unit) =
     AlertDialogBuilder(this).apply {
         dialogBuilder()
     }.createDialog().show()
-}
 
 /**
- *  Extension to create and display an AlertDialog and shows it.
- *
- *  @param dialogBuilder is a Helper class to process dialog DSL and create a AlertDialog.Builder instance.
- *
+ *  Extension to create and display an [AlertDialog] and shows it.
+ *  @param dialogBuilder is a Helper class to process dialog DSL and
+ *  create a [AlertDialog.Builder] instance.
  * */
 fun Fragment.alertDialog(dialogBuilder: AlertDialogBuilder.() -> Unit) {
     if (this.context != null) {
@@ -61,27 +56,23 @@ fun Fragment.alertDialog(dialogBuilder: AlertDialogBuilder.() -> Unit) {
 }
 
 /**
- * Extension to create an AlertDialog
- *
- * @param dialogBuilder is a Helper class to process dialog DSL and create a AlertDialog.Builder instance.
- *
- * @return AlertDialog object which can be used to show the dialog
+ * Extension to create an [AlertDialog]
+ * @param dialogBuilder is a Helper class to process dialog DSL and
+ * create a [AlertDialog.Builder] instance.
+ * @return [AlertDialog] object which can be used to show the dialog
  * */
-fun Activity.createDialog(dialogBuilder: AlertDialogBuilder.() -> Unit): AlertDialog {
-    return AlertDialogBuilder(this).apply {
+fun Activity.createDialog(dialogBuilder: AlertDialogBuilder.() -> Unit): AlertDialog =
+    AlertDialogBuilder(this).apply {
         dialogBuilder()
     }.createDialog()
-}
 
 /**
- * AlertDialog Extension Helper class
- *
+ * [AlertDialog] Extension Helper class
  * */
 @AlertDialogExtensions
 class AlertDialogBuilder internal constructor(private val context: Context) {
 
     private val builder: AlertDialog.Builder = AlertDialog.Builder(context)
-
     var title: String = context.getString(R.string.app_name)
     var message: String = context.getString(R.string.dialog_message_default)
     private var positiveButtonText = context.getString(R.string.positive_button_default_text)
@@ -91,8 +82,7 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
 
     /**
      * Adds positive button to the alert dialog.
-     *
-     * @param func is a lamda with PositiveButton class receiver
+     * @param func is a lambda with [PositiveButton] class receiver
      * */
     fun positiveButton(func: PositiveButton.() -> Unit) {
         val positiveButton = PositiveButton(context)
@@ -107,10 +97,9 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
 
     /**
      * Adds negative button to the alert dialog.
-     *
-     * This is optional. If you want to display a dialog with only one button then don't use it.
-     *
-     * @param func is a lamda with PositiveButton class receiver
+     * This is optional. If you want to display a dialog with
+     * only one button then don't use it.
+     * @param func is a lambda with [NegativeButton] class receiver
      * */
     fun negativeButton(func: NegativeButton.() -> Unit) {
         val negativeButton = NegativeButton(context)
@@ -125,26 +114,23 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
 
     /**
      * Adds positive button to the alert dialog.
-     *
-     * @return AlertDialog instance which is used to show alert
+     * @return [AlertDialog] instance which is used to show alert
      * */
-    internal fun createDialog(): AlertDialog {
-        builder.setMessage(message)
-        builder.setTitle(title)
-        builder.setPositiveButton(positiveButtonText) { dialog, _ ->
+    internal fun createDialog(): AlertDialog = builder.apply {
+        setMessage(message)
+        setTitle(title)
+        setPositiveButton(positiveButtonText) { dialog, _ ->
             positiveButtonClick()
             dialog.dismiss()
         }
-        return builder.create()
-    }
-
+    }.create()
 
     /**
-     * PositiveButton Helper class to process positive button DSL and add a positive button in the dialog.
-     *
+     * [PositiveButton] Helper class to process positive button DSL and
+     * add a positive button in the dialog.
      * @property textId gains the priority when both text and textId is used
-     * @property onClick is a small DSL function to add click event on positive button
-     *
+     * @property onClick is a small DSL function to
+     * add click event on positive button
      * */
     @AlertDialogExtensions
     class PositiveButton internal constructor(private val context: Context) {
@@ -153,20 +139,16 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
 
         /**
          * Used to process string resources
-         *
          * @param id is a string resource id which is resolved to a string
-         *
          * returns resolved string from resource
          * */
-        fun from(@StringRes id: Int): String {
-            return context.getString(id)
-        }
+        fun from(@StringRes id: Int): String = context.getString(id)
 
         /**
-         * Provides a function block to perform actions on positive button click
-         *
-         * @param func is the function which will be called on the positive button click
-         *
+         * Provides a function block to perform actions on
+         * positive button click
+         * @param func is the function which will be
+         * called on the positive button click
          * */
         fun onClick(func: () -> Unit) {
             clickEvent = func
@@ -174,11 +156,11 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
     }
 
     /**
-     * NegativeButton Helper class to process negative button DSL and add a negative button in the dialog.
-     *
+     * [NegativeButton] Helper class to process negative button DSL and
+     * add a negative button in the dialog.
      * @property textId gains the priority when both text and textId is used
-     * @property onClick is a small DSL function to add click event on positive button
-     *
+     * @property onClick is a small DSL function to add
+     * click event on positive button
      * */
     @AlertDialogExtensions
     class NegativeButton internal constructor(private val context: Context) {
@@ -187,24 +169,18 @@ class AlertDialogBuilder internal constructor(private val context: Context) {
 
         /**
          * Used to process string resources
-         *
          * @param id is a string resource id which is resolved to a string
-         *
          * returns resolved string from resource
          * */
-        fun from(@StringRes id: Int): String {
-            return context.getString(id)
-        }
+        fun from(@StringRes id: Int): String = context.getString(id)
 
         /**
          * Provides a function block to perform actions on positive button click
-         *
-         * @param func is the function which will be called on the positive button click
-         *
+         * @param func is the function which will be called
+         * on the positive button click
          * */
         fun onClick(func: () -> Unit) {
             clickEvent = func
         }
     }
 }
-
