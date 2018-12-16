@@ -40,5 +40,5 @@ fun <T> LiveData<T>.watch(owner: LifecycleOwner, func: (T) -> Unit) =
 /**
  * Extension function for [MutableLiveData] to return as Immutable or as [LiveData]
  * */
-fun <T> MutableLiveData<T>.immutable() =
-    this as LiveData<T>
+fun <T> MutableLiveData<T>.immutable(): LiveData<T> =
+    this as? LiveData<T> ?: throw Exception("Cannot convert Mutable LiveData to Immutable")
