@@ -140,10 +140,16 @@ class TextWatcherBuilder {
         start: Int, before: Int, count: Int
     ) -> Unit = { _, _, _, _ -> }
 
+    /**
+     * Provides a lambda block which will be executed after text changes on [EditText]
+     * */
     fun after(func: (editable: Editable?) -> Unit) {
         this.afterFunc = func
     }
 
+    /**
+     * Provides a lambda block which will be executed before text changes on [EditText]
+     * */
     fun before(
         func: (
             text: CharSequence?, start: Int,
@@ -153,6 +159,9 @@ class TextWatcherBuilder {
         this.beforeFunc = func
     }
 
+    /**
+     * Provides a lambda block which will be executed on text changes on [EditText]
+     * */
     fun onChange(
         func: (
             text: CharSequence?, start: Int,
