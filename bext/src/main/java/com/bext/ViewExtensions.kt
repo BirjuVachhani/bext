@@ -18,7 +18,6 @@ package com.bext
 
 import android.view.View
 
-
 /**
  * Created by Birju Vachhani on 03-11-2018.
  */

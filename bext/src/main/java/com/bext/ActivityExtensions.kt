@@ -20,10 +20,10 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Handler
-import android.support.v4.app.FragmentTransaction
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 
 /**
  * Created by Birju Vachhani on 13/11/18.
@@ -63,7 +63,7 @@ inline fun <reified T : Activity> Activity.navigateTo() =
  * which provides access to the transaction instance which will be
  * used to process [FragmentTransaction]
  * */
-fun AppCompatActivity.transact(func: FragmentTransaction.() -> Unit) =
+fun AppCompatActivity.transact(func: androidx.fragment.app.FragmentTransaction.() -> Unit) =
     this.supportFragmentManager.beginTransaction().apply {
         func()
     }.commit()

@@ -17,10 +17,10 @@
 package com.bext
 
 import android.content.Context
-import android.support.annotation.StringRes
-import android.support.v4.app.Fragment
-import android.support.v7.app.AlertDialog
 import android.widget.Toast
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 
 /**
  * Created by Birju Vachhani on 01/11/18.
