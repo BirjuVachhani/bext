@@ -17,10 +17,10 @@
 package com.birjuvachhani.baseextensions
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.bext.alertDialog
 import com.bext.toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Main Activity class to handle handle MainActivity UI
@@ -31,13 +31,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        btnShowDialog.setOnClickListener {
+            displayDialog()
+        }
     }
 
     /**
      * This will be executed on the button click in main activity
      *
      * */
-    fun displayDialog(v: View) {
+    fun displayDialog() {
         alertDialog {
             title = "Tips"
             message = "This is the awesome form of kotlin DSL."
