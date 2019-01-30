@@ -19,6 +19,7 @@ package com.bext
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
+import android.view.LayoutInflater
 
 /**
  * Created by Birju Vachhani on 30/01/19.
@@ -53,3 +54,9 @@ inline fun <reified T : Application> Context.application(): T = with(this.applic
 fun Context.hasInternet(): Boolean =
     this.getService<ConnectivityManager>(Context.CONNECTIVITY_SERVICE).activeNetworkInfo?.isConnected
         ?: false
+
+/**
+ * Property Extension to get [LayoutInflater] from [Context] directly
+ * */
+val Context.layoutInflater: LayoutInflater
+    get() = LayoutInflater.from(this)

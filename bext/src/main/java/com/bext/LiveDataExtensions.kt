@@ -42,3 +42,21 @@ fun <T> LiveData<T>.watch(owner: LifecycleOwner, func: (T) -> Unit) =
  * */
 fun <T> MutableLiveData<T>.immutable(): LiveData<T> =
     this as? LiveData<T> ?: throw ClassCastException("Cannot convert Mutable LiveData to Immutable")
+
+/**
+ * Extension Function for initializing [MutableLiveData] with some initial value
+ * @param data is the initial value
+ * */
+fun <T> MutableLiveData<T>.initWith(data: T): MutableLiveData<T> = this.apply {
+    value = data
+}
+
+/**
+ * Extension function for notifying observers of the [MutableLiveData]
+ * When there's some change in the value of [MutableLiveData] but the whole value
+ * is not changed/replaced, observers are not notified. This extension assigns same value to the [MutableLiveData]
+ * that triggers and passes update to its observers
+ * */
+fun <T> MutableLiveData<T>.notify() {
+    this.value = this.value
+}

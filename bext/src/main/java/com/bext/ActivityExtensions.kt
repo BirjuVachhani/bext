@@ -44,11 +44,8 @@ fun Activity.hideKeyboard() = postHandler {
  * to perform action on to the [Intent] which will be used to start Activity
  * T takes name of the destination [Activity]
  * */
-inline fun <reified T : Activity> Activity.navigateTo(func: Intent.() -> Unit = {}) {
-    val intent = Intent(this, T::class.java)
-    intent.func()
-    this.startActivity(intent)
-}
+inline fun <reified T : Activity> Activity.navigateTo(func: Intent.() -> Unit = {}) =
+    this.startActivity(Intent(this, T::class.java).apply(func))
 
 /**
  * Extension function to start/launch new [Activity] without passing any data
@@ -63,6 +60,18 @@ inline fun <reified T : Activity> Activity.navigateTo() =
  * used to process [FragmentTransaction]
  * */
 fun AppCompatActivity.transact(func: FragmentTransaction.() -> Unit) =
-    this.supportFragmentManager.beginTransaction().apply {
-        func()
-    }.commit()
+    this.supportFragmentManager.beginTransaction().apply(func).commit()
+
+/**
+ * Extension function to start/launch new [Activity] for result without passing any data
+ * */
+inline fun <reified T : Activity> Activity.navigateForResultTo(requestCode: Int) =
+    this.startActivityForResult(Intent(this, T::class.java), requestCode)
+
+/**
+ * Extension function to start/launch new [Activity] for result
+ * @param func is a lambda function with [Intent]'s receiver which provides a lambda block
+ * to perform action on to the [Intent] which will be used to start Activity
+ * */
+inline fun <reified T : Activity> Activity.navigateForResultTo(requestCode: Int, func: Intent.() -> Unit = {}) =
+    this.startActivityForResult(Intent(this, T::class.java).apply(func), requestCode)

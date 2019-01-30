@@ -16,12 +16,9 @@
 
 package com.birjuvachhani.baseextensions
 
-import android.content.Context
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.bext.alertDialog
-import com.bext.getService
 import com.bext.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -37,9 +34,6 @@ class MainActivity : AppCompatActivity() {
         btnShowDialog.setOnClickListener {
             displayDialog()
         }
-
-        val service: InputMethodManager = getService(Context.INPUT_METHOD_SERVICE)
-        service.isActive
     }
 
     /**

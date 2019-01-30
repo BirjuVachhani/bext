@@ -73,3 +73,13 @@ operator fun SharedPreferences.set(key: String, value: Any) =
         }
         apply()
     }
+
+/**
+ * Extension to clear [SharedPreferences]
+ * */
+fun SharedPreferences.clear() = this.edit().clear().apply()
+
+/**
+ * Extension function to remove a key-value pair from [SharedPreferences]
+ * */
+fun SharedPreferences.remove(key: String) = this.edit().remove(key).apply()

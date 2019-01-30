@@ -16,6 +16,7 @@
 
 package com.bext
 
+import android.view.LayoutInflater
 import android.view.View
 
 
@@ -58,3 +59,9 @@ fun View.isHidden(): Boolean = this.visibility == View.GONE
  * Extension function to check if the [View] is invisible
  * */
 fun View.isInvisible(): Boolean = this.visibility == View.INVISIBLE
+
+/**
+ * Property Extension to get [LayoutInflater] from [View] directly
+ * */
+val View.layoutInflater: LayoutInflater
+    get() = LayoutInflater.from(this.context)
