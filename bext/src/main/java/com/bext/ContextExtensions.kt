@@ -28,14 +28,13 @@ import android.view.LayoutInflater
 /**
  * gets system service and casts it to the requested type else throws [ClassCastException]
  * */
-inline fun <reified T> Context.getService(serviceName: String): T {
-    val service = getSystemService(serviceName)
-    if (service is T) {
-        return service
-    } else {
-        throw ClassCastException("Cannot cast service to the given type: ${T::class.java}")
+inline fun <reified T> Context.getService(serviceName: String): T? =
+    getSystemService(serviceName).let { service ->
+        return when (service) {
+            is T -> service
+            else -> null
+        }
     }
-}
 
 /**
  * Extension function to get Application class
@@ -52,7 +51,8 @@ inline fun <reified T : Application> Context.application(): T = with(this.applic
  * @return true is internet connectivity is available, false otherwise
  * */
 fun Context.hasInternet(): Boolean =
-    this.getService<ConnectivityManager>(Context.CONNECTIVITY_SERVICE).activeNetworkInfo?.isConnected
+    this.getService<ConnectivityManager>(Context.CONNECTIVITY_SERVICE)
+        ?.activeNetworkInfo?.isConnected
         ?: false
 
 /**

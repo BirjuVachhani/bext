@@ -100,7 +100,7 @@ fun EditText.textWatcher(textChangedBuilderFunc: TextWatcherBuilder.() -> Unit) 
 fun EditText.imeActionListener(
     action: Int, consume: Boolean = false,
     func: (text: String) -> Unit
-) = this.setOnEditorActionListener { v, actionId, event ->
+) = this.setOnEditorActionListener { _, actionId, _ ->
     if (actionId == action) {
         func(this.textString())
     }

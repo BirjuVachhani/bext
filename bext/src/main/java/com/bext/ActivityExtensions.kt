@@ -33,7 +33,7 @@ import androidx.fragment.app.FragmentTransaction
  * Extension function to hide soft keyboard for activity
  * */
 fun Activity.hideKeyboard() = postHandler {
-    getService<InputMethodManager>(Context.INPUT_METHOD_SERVICE).hideSoftInputFromWindow(
+    getService<InputMethodManager>(Context.INPUT_METHOD_SERVICE)?.hideSoftInputFromWindow(
         this.findViewById<View>(android.R.id.content).windowToken, 0
     )
 }
