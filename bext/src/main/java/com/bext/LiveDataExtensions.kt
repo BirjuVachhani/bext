@@ -1,12 +1,12 @@
 /*
- * Copyright 2018 BirjuVachhani
- * </p>
+ * Copyright 2019 BirjuVachhani (https://github.com/BirjuVachhani)
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * </p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * </p>
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,10 +16,10 @@
 
 package com.bext
 
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 
 /**
  * Created by Birju Vachhani on 16-12-2018.
@@ -42,3 +42,21 @@ fun <T> LiveData<T>.watch(owner: LifecycleOwner, func: (T) -> Unit) =
  * */
 fun <T> MutableLiveData<T>.immutable(): LiveData<T> =
     this as? LiveData<T> ?: throw ClassCastException("Cannot convert Mutable LiveData to Immutable")
+
+/**
+ * Extension Function for initializing [MutableLiveData] with some initial value
+ * @param data is the initial value
+ * */
+fun <T> MutableLiveData<T>.initWith(data: T): MutableLiveData<T> = this.apply {
+    value = data
+}
+
+/**
+ * Extension function for notifying observers of the [MutableLiveData]
+ * When there's some change in the value of [MutableLiveData] but the whole value
+ * is not changed/replaced, observers are not notified. This extension assigns same value to the [MutableLiveData]
+ * that triggers and passes update to its observers
+ * */
+fun <T> MutableLiveData<T>.notify() {
+    this.value = this.value
+}

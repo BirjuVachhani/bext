@@ -16,20 +16,35 @@
 
 package com.bext
 
-import android.os.Handler
+import com.google.gson.Gson
 
 /**
- * Created by Birju Vachhani on 16-12-2018.
+ * Created by Birju Vachhani on 30/01/19.
  */
 
-/**
- * Extension function for posting a [Handler]
- * */
-fun postHandler(func: () -> Unit) =
-    Handler().post { func() }
+val gson = Gson()
 
 /**
- * Extension function for posting a delayed [Handler]
+ * Clones an object using [Gson]
  * */
-fun postHandler(delay: Long, func: () -> Unit) =
-    Handler().postDelayed(func, delay)
+inline fun <reified T> Gson.clone(t: T): T {
+    return this.fromJson(this.toJson(t), T::class.java)
+}
+
+/**
+ * Clones an object using [Gson]
+ * */
+inline fun <reified T> T.createClone(): T {
+    return gson.fromJson(gson.toJson(this), T::class.java)
+}
+
+/**
+ * creates a clone of given [ArrayList] using gson
+ * */
+inline fun <reified T> ArrayList<T>.createClone(): ArrayList<T> {
+    val list = ArrayList<T>()
+    this.forEach { item ->
+        list.add(gson.clone(item))
+    }
+    return list
+}
