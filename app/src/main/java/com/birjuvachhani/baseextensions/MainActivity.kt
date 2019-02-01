@@ -16,13 +16,11 @@
 
 package com.birjuvachhani.baseextensions
 
-import android.content.Context
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import com.bext.*
+import com.bext.alertDialog
+import com.bext.toast
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.ClassCastException
 
 /**
  * Main Activity class to handle handle MainActivity UI
@@ -36,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         btnShowDialog.setOnClickListener {
             displayDialog()
         }
-
     }
 
     /**

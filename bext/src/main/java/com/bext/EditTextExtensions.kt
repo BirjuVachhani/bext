@@ -114,6 +114,7 @@ fun EditText.imeActionListener(
 fun EditText.isValidEmail(): Boolean =
     if (this.textString().isEmpty()) false
     else this.textString().isNotEmpty()
+
             && android.util.Patterns.EMAIL_ADDRESS.matcher(this.textString()).matches()
 
 /**

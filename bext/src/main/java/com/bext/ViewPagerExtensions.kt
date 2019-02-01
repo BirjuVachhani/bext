@@ -32,17 +32,13 @@ class PageChangeListener : ViewPager.OnPageChangeListener {
         { _, _, _ -> Unit }
     private var onSelectedFunc: (position: Int) -> Unit = {}
 
-    override fun onPageScrollStateChanged(state: Int) {
+    override fun onPageScrollStateChanged(state: Int) =
         onScrollStateChangedFunc(state)
-    }
 
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) =
         onScrolledFunc(position, positionOffset, positionOffsetPixels)
-    }
 
-    override fun onPageSelected(position: Int) {
-        onSelectedFunc(position)
-    }
+    override fun onPageSelected(position: Int) = onSelectedFunc(position)
 
     /**
      * sets function to be called when page is selected
