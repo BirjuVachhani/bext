@@ -1,12 +1,12 @@
 /*
- * Copyright 2018 BirjuVachhani
- * </p>
+ * Copyright 2019 BirjuVachhani (https://github.com/BirjuVachhani)
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * </p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * </p>
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,6 +16,7 @@
 
 package com.bext
 
+import android.view.LayoutInflater
 import android.view.View
 
 
@@ -58,3 +59,9 @@ fun View.isHidden(): Boolean = this.visibility == View.GONE
  * Extension function to check if the [View] is invisible
  * */
 fun View.isInvisible(): Boolean = this.visibility == View.INVISIBLE
+
+/**
+ * Property Extension to get [LayoutInflater] from [View] directly
+ * */
+val View.layoutInflater: LayoutInflater
+    get() = LayoutInflater.from(this.context)
