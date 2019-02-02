@@ -8,18 +8,26 @@
 
 Bext is a kotlin extensions library which makes it very easy to write short and clean code and saves a developer's life from being miserable.
 
-See [wiki](https://github.com/BirjuVachhani/bext/wiki) for more information on Extensions
+See [wiki](https://github.com/BirjuVachhani/bext/wiki) for more information on Extensions.
 
-Please note that the library is still under development. Stable version of the library will be released soon. Stay toned!
+Please note that from the version 2.0.0, this library is migrated to **AndroidX** and doesn't provide support for older Android packages.
 
 ## Available Extensions 
 
 * [Activity Extensions](https://github.com/BirjuVachhani/bext/wiki/Activity-Extensions)
 * [AlertDialog Extensions](https://github.com/BirjuVachhani/bext/wiki/AlertDialog-Extensions)
+* [Context Extensions](https://github.com/BirjuVachhani/bext/wiki/Context-Extensions)
 * [EditText Extensions](https://github.com/BirjuVachhani/bext/wiki/EditText-Extensions)
+* [Fragment Extensions](https://github.com/BirjuVachhani/bext/wiki/Fragment-Extensions)
+* [Generic Extensions](https://github.com/BirjuVachhani/bext/wiki/Generic-Extensions)
+* [Gson Extensions](https://github.com/BirjuVachhani/bext/wiki/Gson-Extensions)
+* [Handler Extensions](https://github.com/BirjuVachhani/bext/wiki/Handler-Extensions)
+* [LiveData Extensions](https://github.com/BirjuVachhani/bext/wiki/LiveData-Extensions)
 * [Log Extensions](https://github.com/BirjuVachhani/bext/wiki/Log-Extensions)
+* [SharedPreferences Extensions](https://github.com/BirjuVachhani/bext/wiki/SharedPreferences-Extensions)
 * [Toast Extensions](https://github.com/BirjuVachhani/bext/wiki/Toast-Extensions)
 * [View Extensions](https://github.com/BirjuVachhani/bext/wiki/View-Extensions)
+* [ViewPager Extensions](https://github.com/BirjuVachhani/bext/wiki/ViewPager-Extensions)
 
 
 ## Gradle Dependency
@@ -37,26 +45,16 @@ allprojects {
 
 * Add the dependency in your app's build.gradle file
 
-#### Android
-
 ```
 dependencies {
-    implementation "com.github.BirjuVachhani:bext:1.0.0"
-}
-```
-
-#### AndroidX
-
-```
-dependencies {
-    implementation "com.github.BirjuVachhani:bext:1.0.0-androidx"
+    implementation "com.github.BirjuVachhani:bext:2.0.0"
 }
 ```
 
 ## Licence
 
 ```
-Copyright 2018 BirjuVachhani
+Copyright 2019 BirjuVachhani
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
