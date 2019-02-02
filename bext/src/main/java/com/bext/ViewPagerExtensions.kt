@@ -29,7 +29,7 @@ class PageChangeListener : ViewPager.OnPageChangeListener {
 
     private var onScrollStateChangedFunc: (state: Int) -> Unit = {}
     private var onScrolledFunc: (position: Int, positionOffset: Float, positionOffsetPixels: Int) -> Unit =
-        { _, _, _ -> Unit }
+        { _, _, _ -> }
     private var onSelectedFunc: (position: Int) -> Unit = {}
 
     override fun onPageScrollStateChanged(state: Int) =
