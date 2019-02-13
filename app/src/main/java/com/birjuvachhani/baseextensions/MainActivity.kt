@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Main Activity class to handle handle MainActivity UI
- *
  * */
 class MainActivity : AppCompatActivity() {
 
@@ -38,7 +37,6 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * This will be executed on the button click in main activity
-     *
      * */
     private fun displayDialog() {
         alertDialog {

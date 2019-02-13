@@ -14,20 +14,20 @@ Please note that from the version 2.0.0, this library is migrated to **AndroidX*
 
 ## Available Extensions 
 
-* [Activity Extensions](https://github.com/BirjuVachhani/bext/wiki/Activity-Extensions)
-* [AlertDialog Extensions](https://github.com/BirjuVachhani/bext/wiki/AlertDialog-Extensions)
-* [Context Extensions](https://github.com/BirjuVachhani/bext/wiki/Context-Extensions)
-* [EditText Extensions](https://github.com/BirjuVachhani/bext/wiki/EditText-Extensions)
-* [Fragment Extensions](https://github.com/BirjuVachhani/bext/wiki/Fragment-Extensions)
-* [Generic Extensions](https://github.com/BirjuVachhani/bext/wiki/Generic-Extensions)
-* [Gson Extensions](https://github.com/BirjuVachhani/bext/wiki/Gson-Extensions)
-* [Handler Extensions](https://github.com/BirjuVachhani/bext/wiki/Handler-Extensions)
-* [LiveData Extensions](https://github.com/BirjuVachhani/bext/wiki/LiveData-Extensions)
-* [Log Extensions](https://github.com/BirjuVachhani/bext/wiki/Log-Extensions)
-* [SharedPreferences Extensions](https://github.com/BirjuVachhani/bext/wiki/SharedPreferences-Extensions)
-* [Toast Extensions](https://github.com/BirjuVachhani/bext/wiki/Toast-Extensions)
-* [View Extensions](https://github.com/BirjuVachhani/bext/wiki/View-Extensions)
-* [ViewPager Extensions](https://github.com/BirjuVachhani/bext/wiki/ViewPager-Extensions)
+* [Activity Extensions](https://github.com/BirjuVachhani/bext/wiki/ActivityExtensions)
+* [AlertDialog Extensions](https://github.com/BirjuVachhani/bext/wiki/AlertDialogExtensions)
+* [Context Extensions](https://github.com/BirjuVachhani/bext/wiki/ContextExtensions)
+* [EditText Extensions](https://github.com/BirjuVachhani/bext/wiki/EditTextExtensions)
+* [Fragment Extensions](https://github.com/BirjuVachhani/bext/wiki/FragmentExtensions)
+* [Generic Extensions](https://github.com/BirjuVachhani/bext/wiki/GenericExtensions)
+* [Gson Extensions](https://github.com/BirjuVachhani/bext/wiki/GsonExtensions)
+* [Handler Extensions](https://github.com/BirjuVachhani/bext/wiki/HandlerExtensions)
+* [LiveData Extensions](https://github.com/BirjuVachhani/bext/wiki/LiveDataExtensions)
+* [Log Extensions](https://github.com/BirjuVachhani/bext/wiki/LogExtensions)
+* [SharedPreferences Extensions](https://github.com/BirjuVachhani/bext/wiki/SharedPreferencesExtensions)
+* [Toast Extensions](https://github.com/BirjuVachhani/bext/wiki/ToastExtensions)
+* [View Extensions](https://github.com/BirjuVachhani/bext/wiki/ViewExtensions)
+* [ViewPager Extensions](https://github.com/BirjuVachhani/bext/wiki/ViewPagerExtensions)
 
 
 ## Gradle Dependency
@@ -47,7 +47,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation "com.github.BirjuVachhani:bext:2.0.0"
+    implementation "com.github.BirjuVachhani:bext:2.0.1"
 }
 ```
 
