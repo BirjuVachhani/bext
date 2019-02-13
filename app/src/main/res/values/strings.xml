@@ -18,4 +18,5 @@
     <string name="app_name">Base Extensions</string>
     <string name="positive">Yo</string>
     <string name="negative">Nope</string>
+    <string name="show_dialog">Show Dialog</string>
 </resources>
