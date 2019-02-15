@@ -16,11 +16,14 @@
 
 package com.birjuvachhani.baseextensions
 
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.bext.alertDialog
 import com.bext.toast
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 /**
  * Main Activity class to handle handle MainActivity UI
@@ -31,7 +34,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btnShowDialog.setOnClickListener {
-            displayDialog()
+            // ivSnap.setImageBitmap(imageView.asBitmap())
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val before = System.currentTimeMillis()
+                copyPixels(imageView) {
+                    val after = System.currentTimeMillis()
+                    Log.e("BIRJU", "Time taken: ${(after - before)}")
+                    ivSnap.setImageBitmap(it)
+                }
+            }
+
+//            val before = System.currentTimeMillis()
+//            val bitmap = imageView.asBitmap()
+//            val after = System.currentTimeMillis()
+//            Log.e("BIRJU", "Time taken: ${(after - before)}")
+//            ivSnap.setImageBitmap(bitmap)
         }
     }
 
