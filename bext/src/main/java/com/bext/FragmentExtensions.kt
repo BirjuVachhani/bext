@@ -26,6 +26,11 @@ import androidx.fragment.app.Fragment
  * Created by Birju Vachhani on 30/01/19.
  */
 
+/*
+ * Created by Birju Vachhani on 30 January 2019
+ * Copyright © 2019 bext. All rights reserved.
+ */
+
 /**
  * Extension function to hide soft keyboard for fragment
  * */

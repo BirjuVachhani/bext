@@ -25,8 +25,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 
-/**
- * Created by Birju Vachhani on 13/11/18.
+/*
+ * Created by Birju Vachhani on 13 November 2018
+ * Copyright © 2019 bext. All rights reserved.
  */
 
 /**

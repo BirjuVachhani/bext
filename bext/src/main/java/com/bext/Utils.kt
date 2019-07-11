@@ -1,7 +1,9 @@
 package com.bext
 
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Rect
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Handler
 import android.view.PixelCopy
@@ -9,9 +11,11 @@ import android.view.View
 import android.view.Window
 import androidx.annotation.RequiresApi
 
-/**
- * Created by Birju Vachhani on 15/02/19.
+/*
+ * Created by Birju Vachhani on 15 February 2019
+ * Copyright © 2019 bext. All rights reserved.
  */
+
 
 @RequiresApi(Build.VERSION_CODES.O)
 internal fun copyPixelsUsingPixelApi(window: Window, view: View, func: (Bitmap) -> Unit) {
@@ -29,3 +33,8 @@ internal fun copyPixelsUsingPixelApi(window: Window, view: View, func: (Bitmap) 
         }, Handler()
     )
 }
+
+internal fun Drawable.asBitmap() =
+    Bitmap.createBitmap(this.intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888).also { bitmap ->
+        draw(Canvas(bitmap))
+    }

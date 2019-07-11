@@ -19,8 +19,9 @@ package com.bext
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 
-/**
- * Created by Birju Vachhani on 16-12-2018.
+/*
+ * Created by Birju Vachhani on 16 December 2018
+ * Copyright © 2019 bext. All rights reserved.
  */
 
 /**
