@@ -14,14 +14,38 @@
  * limitations under the License.
  */
 
-package com.bext
+package com.bext.core
+
+import com.google.gson.Gson
 
 /*
  * Created by Birju Vachhani on 30 January 2019
  * Copyright © 2019 bext. All rights reserved.
  */
 
+val gson = Gson()
+
 /**
- * Extension function to retrieve name string of any class
+ * Clones an object using [Gson]
  * */
-inline fun <reified T : Any> T.className(): String = this::class.java.simpleName
+inline fun <reified T> Gson.clone(t: T): T {
+    return this.fromJson(this.toJson(t), T::class.java)
+}
+
+/**
+ * Clones an object using [Gson]
+ * */
+inline fun <reified T> T.createClone(): T {
+    return gson.fromJson(gson.toJson(this), T::class.java)
+}
+
+/**
+ * creates a clone of given [ArrayList] using gson
+ * */
+inline fun <reified T> ArrayList<T>.createClone(): ArrayList<T> {
+    val list = ArrayList<T>()
+    this.forEach { item ->
+        list.add(gson.clone(item))
+    }
+    return list
+}

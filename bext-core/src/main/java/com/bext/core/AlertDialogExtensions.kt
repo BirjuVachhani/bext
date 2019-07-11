@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.bext
+package com.bext.core
 
 import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.bext.R
 
 /*
  * Created by Birju Vachhani on 01 November 2018
@@ -84,7 +85,8 @@ class AlertDialogBuilder internal constructor() {
 
     var title: Any = R.string.app_name
     var message: Any = R.string.dialog_message_default
-    private var positiveButton = DialogButton(R.string.positive_button_default_text)
+    private var positiveButton =
+        DialogButton(R.string.positive_button_default_text)
     private var negativeButton: DialogButton? = null
     var cancelable: Boolean = true
     internal var dismissFunc: (DialogInterface) -> Unit = {}

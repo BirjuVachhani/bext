@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.bext
+package com.bext.core
 
+import android.R
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -35,7 +36,7 @@ import androidx.fragment.app.FragmentTransaction
  * */
 fun Activity.hideKeyboard() = postHandler {
     getService<InputMethodManager>(Context.INPUT_METHOD_SERVICE)?.hideSoftInputFromWindow(
-        this.findViewById<View>(android.R.id.content).windowToken, 0
+        this.findViewById<View>(R.id.content).windowToken, 0
     )
 }
 
