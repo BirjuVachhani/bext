@@ -18,8 +18,9 @@ package com.bext
 
 import com.google.gson.Gson
 
-/**
- * Created by Birju Vachhani on 30/01/19.
+/*
+ * Created by Birju Vachhani on 30 January 2019
+ * Copyright © 2019 bext. All rights reserved.
  */
 
 val gson = Gson()

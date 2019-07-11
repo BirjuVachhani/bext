@@ -22,8 +22,9 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 
-/**
- * Created by Birju Vachhani on 01/11/18.
+/*
+ * Created by Birju Vachhani on 01 November 2018
+ * Copyright © 2019 bext. All rights reserved.
  */
 
 /**

@@ -18,8 +18,9 @@ package com.bext
 
 import android.util.Log
 
-/**
- * Created by Birju Vachhani on 01/11/18.
+/*
+ * Created by Birju Vachhani on 01 November 2018
+ * Copyright © 2019 bext. All rights reserved.
  */
 
 /**

@@ -21,8 +21,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 
-/**
- * Created by Birju Vachhani on 16-12-2018.
+/*
+ * Created by Birju Vachhani on 16 December 2018
+ * Copyright © 2019 bext. All rights reserved.
  */
 
 /**
