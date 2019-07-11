@@ -1,4 +1,4 @@
-package com.bext
+package com.bext.core
 
 import android.app.Activity
 import android.graphics.Bitmap

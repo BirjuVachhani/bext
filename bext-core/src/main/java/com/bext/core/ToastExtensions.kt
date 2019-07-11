@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bext
+package com.bext.core
 
 import android.content.Context
 import android.widget.Toast

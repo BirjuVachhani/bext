@@ -14,23 +14,14 @@
  * limitations under the License.
  */
 
-package com.bext
-
-import android.os.Handler
+package com.bext.core
 
 /*
- * Created by Birju Vachhani on 16 December 2018
+ * Created by Birju Vachhani on 30 January 2019
  * Copyright © 2019 bext. All rights reserved.
  */
 
 /**
- * Extension function for posting a [Handler]
+ * Extension function to retrieve name string of any class
  * */
-fun postHandler(func: () -> Unit) =
-    Handler().post { func() }
-
-/**
- * Extension function for posting a delayed [Handler]
- * */
-fun postHandler(delay: Long, func: () -> Unit) =
-    Handler().postDelayed(func, delay)
+inline fun <reified T : Any> T.className(): String = this::class.java.simpleName
