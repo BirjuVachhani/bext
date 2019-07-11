@@ -19,9 +19,9 @@ package com.bext
 import android.view.LayoutInflater
 import android.view.View
 
-
-/**
- * Created by Birju Vachhani on 03-11-2018.
+/*
+ * Created by Birju Vachhani on 03 November 2018
+ * Copyright © 2019 bext. All rights reserved.
  */
 
 /**

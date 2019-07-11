@@ -18,8 +18,9 @@ package com.bext
 
 import android.os.Handler
 
-/**
- * Created by Birju Vachhani on 16-12-2018.
+/*
+ * Created by Birju Vachhani on 16 December 2018
+ * Copyright © 2019 bext. All rights reserved.
  */
 
 /**

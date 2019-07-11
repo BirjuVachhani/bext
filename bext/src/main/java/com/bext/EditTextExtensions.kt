@@ -20,8 +20,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 
-/**
- * Created by Birju Vachhani on 01-11-2018.
+/*
+ * Created by Birju Vachhani on 01 November 2018
+ * Copyright © 2019 bext. All rights reserved.
  */
 
 /**
