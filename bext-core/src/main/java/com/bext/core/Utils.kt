@@ -1,4 +1,4 @@
-package com.bext
+package com.bext.core
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
