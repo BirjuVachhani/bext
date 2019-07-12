@@ -1,1 +1,1 @@
-include ':app', ':bext-core', ':bext-common'
+include ':app', ':bext-core', ':bext-common', ':bext-arch'
