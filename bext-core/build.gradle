@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.BirjuVachhani:bext'
+group='com.github.BirjuVachhani'
 
 android {
     compileSdkVersion 29
