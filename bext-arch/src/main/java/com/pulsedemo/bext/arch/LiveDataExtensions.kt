@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bext.core
+package com.pulsedemo.bext.arch
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
