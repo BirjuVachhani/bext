@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bext.core
+package com.bext.common
 
 import com.google.gson.Gson
 
@@ -45,7 +45,7 @@ inline fun <reified T> T.createClone(): T {
 inline fun <reified T> ArrayList<T>.createClone(): ArrayList<T> {
     val list = ArrayList<T>()
     this.forEach { item ->
-        list.add(gson.clone(item))
+        list.add(com.bext.common.gson.clone(item))
     }
     return list
 }
