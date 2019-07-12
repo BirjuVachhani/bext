@@ -12,9 +12,15 @@ android {
         versionCode 1
         versionName "1.0.0"
     }
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compileOnly 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
