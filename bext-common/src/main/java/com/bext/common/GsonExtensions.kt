@@ -28,13 +28,6 @@ val gson = Gson()
 /**
  * Clones an object using [Gson]
  * */
-inline fun <reified T> Gson.clone(t: T): T {
-    return this.fromJson(this.toJson(t), T::class.java)
-}
-
-/**
- * Clones an object using [Gson]
- * */
 inline fun <reified T> T.createClone(): T {
     return gson.fromJson(gson.toJson(this), T::class.java)
 }
@@ -45,7 +38,7 @@ inline fun <reified T> T.createClone(): T {
 inline fun <reified T> ArrayList<T>.createClone(): ArrayList<T> {
     val list = ArrayList<T>()
     this.forEach { item ->
-        list.add(com.bext.common.gson.clone(item))
+        list.add(item.createClone())
     }
     return list
 }
