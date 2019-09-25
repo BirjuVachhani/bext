@@ -47,9 +47,17 @@ allprojects {
 
 ```
 dependencies {
-    implementation "com.github.BirjuVachhani:bext:2.0.1"
+    // Core extensions from standard android packages
+    implementation "com.github.BirjuVachhani.bext:bext-core:2.0.2"
+    
+    // Extensions for Android Architecture components
+    implementation "com.github.BirjuVachhani.bext:bext-arch:2.0.2"
+    
+    // Extensions for common third-party libraries
+    implementation "com.github.BirjuVachhani.bext:bext-common:2.0.2"
 }
 ```
+see [wiki](https://github.com/Birjuvachhani/bext/wiki) for more information.
 
 ## Licence
 
