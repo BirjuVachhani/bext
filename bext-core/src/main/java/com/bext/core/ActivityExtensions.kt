@@ -24,7 +24,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.bext.R
 
 /*
  * Created by Birju Vachhani on 13 November 2018
