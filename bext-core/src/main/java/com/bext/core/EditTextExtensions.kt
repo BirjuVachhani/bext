@@ -18,6 +18,7 @@ package com.bext.core
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 
 /*
@@ -107,6 +108,42 @@ fun EditText.onAction(
     }
     return@setOnEditorActionListener consume
 }
+
+/**
+ * Extension function to set OnEditorActionListener on [EditText] which handles [EditorInfo.IME_ACTION_DONE]
+ *
+ * @param consume determines whether the action is consumed or
+ * not and passes accordingly to the super
+ *
+ * @param func is a function that will be executed when
+ * the specified action is performed on the keyboard
+ * */
+fun EditText.onActionDone(consume: Boolean = false, func: (text: String) -> Unit) =
+    this.onAction(EditorInfo.IME_ACTION_DONE, consume, func)
+
+/**
+ * Extension function to set OnEditorActionListener on [EditText] which handles [EditorInfo.IME_ACTION_NEXT]
+ *
+ * @param consume determines whether the action is consumed or
+ * not and passes accordingly to the super
+ *
+ * @param func is a function that will be executed when
+ * the specified action is performed on the keyboard
+ * */
+fun EditText.onActionNext(consume: Boolean = false, func: (text: String) -> Unit) =
+    this.onAction(EditorInfo.IME_ACTION_NEXT, consume, func)
+
+/**
+ * Extension function to set OnEditorActionListener on [EditText] which handles [EditorInfo.IME_ACTION_SEARCH]
+ *
+ * @param consume determines whether the action is consumed or
+ * not and passes accordingly to the super
+ *
+ * @param func is a function that will be executed when
+ * the specified action is performed on the keyboard
+ * */
+fun EditText.onActionSearch(consume: Boolean = false, func: (text: String) -> Unit) =
+    this.onAction(EditorInfo.IME_ACTION_SEARCH, consume, func)
 
 /**
  * verifies whether the entered email ID is valid or not
