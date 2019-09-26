@@ -98,7 +98,7 @@ fun EditText.textWatcher(textChangedBuilderFunc: TextWatcherBuilder.() -> Unit) 
  * @param func is a function that will be executed when
  * the specified action is performed on the keyboard
  * */
-fun EditText.imeActionListener(
+fun EditText.onAction(
     action: Int, consume: Boolean = false,
     func: (text: String) -> Unit
 ) = this.setOnEditorActionListener { _, actionId, _ ->
