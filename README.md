@@ -26,7 +26,7 @@ allprojects {
 }
 ```
 
-* Add the dependency in your **app's build.gradle** file
+* Add the dependency in your **app's build.gradle** file.
 
 ```
 dependencies {
