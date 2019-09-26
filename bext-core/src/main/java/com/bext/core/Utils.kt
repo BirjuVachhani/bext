@@ -12,6 +12,7 @@ import android.os.Parcelable
 import android.view.PixelCopy
 import android.view.View
 import android.view.Window
+import android.widget.Checkable
 import androidx.annotation.RequiresApi
 import java.io.Serializable
 
@@ -38,7 +39,11 @@ internal fun copyPixelsUsingPixelApi(window: Window, view: View, func: (Bitmap) 
 }
 
 internal fun Drawable.asBitmap() =
-    Bitmap.createBitmap(this.intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888).also { bitmap ->
+    Bitmap.createBitmap(
+        this.intrinsicWidth,
+        intrinsicHeight,
+        Bitmap.Config.ARGB_8888
+    ).also { bitmap ->
         draw(Canvas(bitmap))
     }
 
@@ -99,4 +104,18 @@ fun Intent.put(vararg pairs: Pair<String, Any>) {
             is Serializable -> putExtra(it.first, value)
         }
     }
+}
+
+/**
+ * Sets a checkable view to checked by settings property [Checkable.isChecked] to true
+ */
+fun Checkable.check() {
+    isChecked = true
+}
+
+/**
+ * Sets a checkable view to unchecked by settings property [Checkable.isChecked] to false
+ */
+fun Checkable.uncheck() {
+    isChecked = false
 }
