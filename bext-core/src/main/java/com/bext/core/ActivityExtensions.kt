@@ -24,7 +24,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.bext.R
 
 /*
  * Created by Birju Vachhani on 13 November 2018
@@ -36,7 +35,7 @@ import com.bext.R
  * */
 fun Activity.hideKeyboard() = postHandler {
     getService<InputMethodManager>(Context.INPUT_METHOD_SERVICE)?.hideSoftInputFromWindow(
-        this.findViewById<View>(R.id.content).windowToken, 0
+        this.findViewById<View>(android.R.id.content).windowToken, 0
     )
 }
 
