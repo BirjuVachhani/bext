@@ -16,7 +16,6 @@
 
 package com.bext.core
 
-import android.R
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -25,6 +24,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.bext.R
 
 /*
  * Created by Birju Vachhani on 13 November 2018
@@ -75,5 +75,8 @@ inline fun <reified T : Activity> Activity.navigateForResultTo(requestCode: Int)
  * @param func is a lambda function with [Intent]'s receiver which provides a lambda block
  * to perform action on to the [Intent] which will be used to start Activity
  * */
-inline fun <reified T : Activity> Activity.navigateForResultTo(requestCode: Int, func: Intent.() -> Unit = {}) =
+inline fun <reified T : Activity> Activity.navigateForResultTo(
+    requestCode: Int,
+    func: Intent.() -> Unit = {}
+) =
     this.startActivityForResult(Intent(this, T::class.java).apply(func), requestCode)
