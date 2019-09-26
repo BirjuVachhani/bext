@@ -15,7 +15,7 @@ Please note that from the version 2.0.0, this library is migrated to **AndroidX*
 
 ## Gradle Dependency
 
-* Add the JitPack repository to your **project's build.gradle** file
+* Add the JitPack repository to your **project's build.gradle** file.
 
 ```
 allprojects {
