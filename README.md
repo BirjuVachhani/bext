@@ -8,7 +8,7 @@
 
 Bext is a kotlin extensions library which makes it very easy to write short and clean code and saves a developer's life from being miserable.
 
-See [wiki](https://github.com/BirjuVachhani/bext/wiki) for more information on Extensions.
+See [wiki](https://github.com/BirjuVachhani/bext/wiki) for more information on extensions and packages.
 
 Please note that from the version 2.0.0, this library is migrated to **AndroidX** and doesn't provide support for older Android packages.
 
