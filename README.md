@@ -15,7 +15,7 @@ Please note that from the version 2.0.0, this library is migrated to **AndroidX*
 
 ## Gradle Dependency
 
-* Add the JitPack repository to your **project's build.gradle** file
+* Add the JitPack repository to your **project's build.gradle** file.
 
 ```
 allprojects {
@@ -26,7 +26,7 @@ allprojects {
 }
 ```
 
-* Add the dependency in your **app's build.gradle** file
+* Add the dependency in your **app's build.gradle** file.
 
 ```
 dependencies {
@@ -38,6 +38,9 @@ dependencies {
     
     // Extensions for common third-party libraries
     implementation "com.github.BirjuVachhani.bext:bext-common:2.1.0"
+    
+    // includes all the extensions
+    implementation "com.github.BirjuVachhani.bext:bext-all:2.1.0"
 }
 ```
 see [wiki](https://github.com/Birjuvachhani/bext/wiki) for more information.
