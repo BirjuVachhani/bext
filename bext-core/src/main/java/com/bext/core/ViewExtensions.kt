@@ -65,3 +65,17 @@ fun View.isInvisible(): Boolean = this.visibility == View.INVISIBLE
  * */
 val View.layoutInflater: LayoutInflater
     get() = LayoutInflater.from(this.context)
+
+/**
+ * Enables a view by settings [View.isEnabled] property to true
+ */
+fun View.enable() {
+    isEnabled = true
+}
+
+/**
+ * Disables a view by settings [View.isEnabled] property to false
+ */
+fun View.disable() {
+    isEnabled = false
+}
