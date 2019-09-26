@@ -38,6 +38,9 @@ dependencies {
     
     // Extensions for common third-party libraries
     implementation "com.github.BirjuVachhani.bext:bext-common:2.1.0"
+    
+    // includes all the extensions
+    implementation "com.github.BirjuVachhani.bext:bext-all:2.1.0"
 }
 ```
 see [wiki](https://github.com/Birjuvachhani/bext/wiki) for more information.
