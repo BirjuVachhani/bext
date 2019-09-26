@@ -20,6 +20,7 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.view.LayoutInflater
+import androidx.annotation.RequiresApi
 
 /*
  * Created by Birju Vachhani on 30 January 2019
@@ -36,6 +37,14 @@ inline fun <reified T> Context.getService(serviceName: String): T? =
             else -> null
         }
     }
+
+@RequiresApi(23)
+@Throws(NullPointerException::class)
+inline fun <reified T> Context.getService(): T = getSystemService(T::class.java)
+    ?: throw NullPointerException("Cannot find requested service: ${T::class.java.simpleName}")
+
+@RequiresApi(23)
+inline fun <reified T> Context.getServiceOrNull(): T? = getSystemService(T::class.java)
 
 /**
  * Extension function to get Application class
