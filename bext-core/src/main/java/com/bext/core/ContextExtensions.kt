@@ -19,6 +19,8 @@ package com.bext.core
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.telephony.TelephonyManager
 import android.view.LayoutInflater
 import androidx.annotation.RequiresApi
 
@@ -70,3 +72,50 @@ fun Context.hasInternet(): Boolean =
  * */
 val Context.layoutInflater: LayoutInflater
     get() = LayoutInflater.from(this)
+
+/**
+ * Retrieves current quality of service which is the type of internet connection used by the device
+ */
+@RequiresApi(21)
+fun Context.getQualityOfService(): String {
+    val connectivityManager =
+        getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
+            ?: return "not connected"
+    val network =
+        connectivityManager.allNetworks.firstOrNull() ?: return "not connected"
+    val capabilities = connectivityManager.getNetworkCapabilities(network)
+    return if (capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true) {
+        "WIFI"
+    } else {
+        getInternetType()
+    }
+}
+
+/**
+ * Retrieves which type of internet connection is being used when this method called. [e.g. 2G, 3G, 4G, 5G]
+ * @return String The type of internet being used
+ */
+private fun Context.getInternetType(): String {
+    val mTelephonyManager =
+        getSystemService(Context.TELEPHONY_SERVICE) as? TelephonyManager
+            ?: return "not connected"
+    return when (mTelephonyManager.networkType) {
+        TelephonyManager.NETWORK_TYPE_GPRS,
+        TelephonyManager.NETWORK_TYPE_EDGE,
+        TelephonyManager.NETWORK_TYPE_CDMA,
+        TelephonyManager.NETWORK_TYPE_1xRTT,
+        TelephonyManager.NETWORK_TYPE_IDEN -> "2G"
+        TelephonyManager.NETWORK_TYPE_UMTS,
+        TelephonyManager.NETWORK_TYPE_EVDO_0,
+        TelephonyManager.NETWORK_TYPE_EVDO_A,
+        TelephonyManager.NETWORK_TYPE_HSDPA,
+        TelephonyManager.NETWORK_TYPE_HSUPA,
+        TelephonyManager.NETWORK_TYPE_HSPA,
+        TelephonyManager.NETWORK_TYPE_EVDO_B,
+        TelephonyManager.NETWORK_TYPE_EHRPD,
+        TelephonyManager.NETWORK_TYPE_HSPAP -> "3G"
+        TelephonyManager.NETWORK_TYPE_LTE -> "4G"
+        TelephonyManager.NETWORK_TYPE_NR -> "5G"
+        else -> "not connected"
+    }
+}
