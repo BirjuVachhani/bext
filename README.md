@@ -12,23 +12,6 @@ See [wiki](https://github.com/BirjuVachhani/bext/wiki) for more information on E
 
 Please note that from the version 2.0.0, this library is migrated to **AndroidX** and doesn't provide support for older Android packages.
 
-## Available Extensions 
-
-* [Activity Extensions](https://github.com/BirjuVachhani/bext/wiki/ActivityExtensions)
-* [AlertDialog Extensions](https://github.com/BirjuVachhani/bext/wiki/AlertDialogExtensions)
-* [Context Extensions](https://github.com/BirjuVachhani/bext/wiki/ContextExtensions)
-* [EditText Extensions](https://github.com/BirjuVachhani/bext/wiki/EditTextExtensions)
-* [Fragment Extensions](https://github.com/BirjuVachhani/bext/wiki/FragmentExtensions)
-* [Generic Extensions](https://github.com/BirjuVachhani/bext/wiki/GenericExtensions)
-* [Gson Extensions](https://github.com/BirjuVachhani/bext/wiki/GsonExtensions)
-* [Handler Extensions](https://github.com/BirjuVachhani/bext/wiki/HandlerExtensions)
-* [LiveData Extensions](https://github.com/BirjuVachhani/bext/wiki/LiveDataExtensions)
-* [Log Extensions](https://github.com/BirjuVachhani/bext/wiki/LogExtensions)
-* [SharedPreferences Extensions](https://github.com/BirjuVachhani/bext/wiki/SharedPreferencesExtensions)
-* [Toast Extensions](https://github.com/BirjuVachhani/bext/wiki/ToastExtensions)
-* [View Extensions](https://github.com/BirjuVachhani/bext/wiki/ViewExtensions)
-* [ViewPager Extensions](https://github.com/BirjuVachhani/bext/wiki/ViewPagerExtensions)
-
 
 ## Gradle Dependency
 
@@ -48,13 +31,13 @@ allprojects {
 ```
 dependencies {
     // Core extensions from standard android packages
-    implementation "com.github.BirjuVachhani.bext:bext-core:2.0.2"
+    implementation "com.github.BirjuVachhani.bext:bext-core:2.1.0"
     
     // Extensions for Android Architecture components
-    implementation "com.github.BirjuVachhani.bext:bext-arch:2.0.2"
+    implementation "com.github.BirjuVachhani.bext:bext-arch:2.1.0"
     
     // Extensions for common third-party libraries
-    implementation "com.github.BirjuVachhani.bext:bext-common:2.0.2"
+    implementation "com.github.BirjuVachhani.bext:bext-common:2.1.0"
 }
 ```
 see [wiki](https://github.com/Birjuvachhani/bext/wiki) for more information.
