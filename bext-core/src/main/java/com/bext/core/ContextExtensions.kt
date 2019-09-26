@@ -62,6 +62,7 @@ inline fun <reified T : Application> Context.application(): T = with(this.applic
  * Extension function to check whether internet connectivity is available or not
  * @return true is internet connectivity is available, false otherwise
  * */
+// TODO check this for new android versions and find work around
 fun Context.hasInternet(): Boolean =
     this.getService<ConnectivityManager>(Context.CONNECTIVITY_SERVICE)
         ?.activeNetworkInfo?.isConnected
