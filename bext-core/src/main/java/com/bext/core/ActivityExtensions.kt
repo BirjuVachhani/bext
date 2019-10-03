@@ -19,6 +19,8 @@ package com.bext.core
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
+import android.util.DisplayMetrics
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
@@ -79,3 +81,38 @@ inline fun <reified T : Activity> Activity.navigateForResultTo(
     func: Intent.() -> Unit = {}
 ) =
     this.startActivityForResult(Intent(this, T::class.java).apply(func), requestCode)
+
+
+/**
+ * Convert Dp to Pixel
+ * @receiver Context
+ * @param dp Float : Density - independent Pixels
+ * @return Float
+ */
+fun Context.dpToPixel(dp: Float): Float {
+    return dp * (resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
+}
+
+/**
+ * Extension method to check is below Api with specific android version and provide block.
+ * @param api Int
+ * @param included Boolean : "true" if need to include api level in condition else "false"
+ * @param block Function0<Unit>
+ */
+inline fun belowApi(api: Int, included: Boolean = false, block: () -> Unit) {
+    if (Build.VERSION.SDK_INT < if (included) api + 1 else api) {
+        block()
+    }
+}
+
+/**
+ * Extension method to check is above Api with specific android version and provide block.
+ * @param api Int
+ * @param included Boolean : "true" if need to include api level in condition else "false"
+ * @param block Function0<Unit>
+ */
+inline fun aboveApi(api: Int, included: Boolean = false, block: () -> Unit) {
+    if (Build.VERSION.SDK_INT > if (included) api - 1 else api) {
+        block()
+    }
+}
