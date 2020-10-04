@@ -4,7 +4,7 @@
 [![language](https://img.shields.io/github/languages/top/BirjuVachhani/bext.svg?style=for-the-badge&colorB=f18e33)](https://kotlinlang.org/)
 [![Platform](https://img.shields.io/badge/Platform-Android-green.svg?style=for-the-badge)](https://www.android.com/)
 [![API](https://img.shields.io/badge/API-16%2B-F44336.svg?style=for-the-badge)](https://android-arsenal.com/api?level=16)
-[![Travis (.org) branch](https://img.shields.io/travis/BirjuVachhani/bext/master.svg?style=for-the-badge)](https://travis-ci.org/BirjuVachhani/bext)
+[![Release](https://jitpack.io/v/BirjuVachhani/locus-android.svg?style=flat-square)](https://jitpack.io/BirjuVachhani/locus-android)
 
 Bext is a kotlin extensions library which makes it very easy to write short and clean code and saves a developer's life from being miserable.
 
@@ -31,24 +31,34 @@ allprojects {
 ```
 dependencies {
     // Core extensions from standard android packages
-    implementation "com.github.BirjuVachhani.bext:bext-core:2.1.0"
+    implementation "com.github.BirjuVachhani.bext:bext-core:latest-version"
     
     // Extensions for Android Architecture components
-    implementation "com.github.BirjuVachhani.bext:bext-arch:2.1.0"
+    implementation "com.github.BirjuVachhani.bext:bext-arch:latest-version"
     
     // Extensions for common third-party libraries
-    implementation "com.github.BirjuVachhani.bext:bext-common:2.1.0"
+    implementation "com.github.BirjuVachhani.bext:bext-common:latest-version"
     
     // includes all the extensions
-    implementation "com.github.BirjuVachhani.bext:bext-all:2.1.0"
+    implementation "com.github.BirjuVachhani.bext:bext-all:latest-version"
 }
 ```
 see [wiki](https://github.com/Birjuvachhani/bext/wiki) for more information.
 
+
+## Contribution
+
+You are most welcome to contribute to this project!
+
+Please have a look at [Contributing Guidelines](https://github.com/BirjuVachhani/bext/blob/master/CONTRIBUTING.md), before contributing and proposing a change.
+
+<a href="https://www.buymeacoffee.com/birjuvachhani" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+
+
 ## Licence
 
 ```
-Copyright 2019 BirjuVachhani
+Copyright 2020 BirjuVachhani
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
