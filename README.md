@@ -4,7 +4,7 @@
 [![language](https://img.shields.io/github/languages/top/BirjuVachhani/bext.svg?style=for-the-badge&colorB=f18e33)](https://kotlinlang.org/)
 [![Platform](https://img.shields.io/badge/Platform-Android-green.svg?style=for-the-badge)](https://www.android.com/)
 [![API](https://img.shields.io/badge/API-16%2B-F44336.svg?style=for-the-badge)](https://android-arsenal.com/api?level=16)
-[![Release](https://jitpack.io/v/BirjuVachhani/locus-android.svg?style=flat-square)](https://jitpack.io/BirjuVachhani/locus-android)
+[![Release](https://jitpack.io/v/BirjuVachhani/bext.svg?style=flat-square)](https://jitpack.io/BirjuVachhani/bext)
 
 Bext is a kotlin extensions library which makes it very easy to write short and clean code and saves a developer's life from being miserable.
 
